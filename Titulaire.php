@@ -3,18 +3,20 @@
 class Titulaire {
     private string $_nom;
     private string $_prenom;
-    private int $_dateDeNaissance;
+    private string $_dateDeNaissance;
     private string $_ville;
-    private string $_account;
+    private array $_accounts;
 
 
 
-    function __construct(string $_nom, string $_prenom, int $_dateDeNaissance, string $_ville, string $_account) {
+    // un titulaire unique peut avoir plusieurs accounts:
+
+    function __construct(string $_nom, string $_prenom, string $_dateDeNaissance, string $_ville, array $_accounts) {
         $this->_nom = $_nom;
         $this->_prenom = $_prenom;
         $this->_dateDeNaissance = $_dateDeNaissance;
         $this->_ville = $_ville;
-        $this->_account = $_account;
+        $this->_accounts = [];
     }
 
 
@@ -52,16 +54,38 @@ class Titulaire {
         $this->_ville = $ville;
     }
 
-    public function getAccount(){
-        return  $this->_account;
+    public function getAccounts(){
+        return  $this->_accounts;
     }
 
-    public function setAccount($account){
-        $this->_account = $account;
+    public function setAccount($accounts){
+        $this->_accounts = $accounts;
     }
 
 
 
+    public function __toString(){
+        return  $this->_nom . " " . $this->_prenom . "<br>";
+    }
+
+
+
+    // fonction qui permet d'ajouter un compte à la liste des comptes du titulaire unique :
+    public function AjoutAccounts(Compte $account){
+        $this->_accounts[] = $account;
+    
+    }
+
+
+
+
+    // fonction qui permet de sortir tous les comptes d'un même Titulaire :
+    public function afficherComptes() {
+        echo "<p>Comptes appartenant à : " . $this->_nom . " " . $this->_prenom . "</p>";
+        foreach($this->_accounts as $account){
+            echo $account. "<br>";
+        }
+    }
 
 
 

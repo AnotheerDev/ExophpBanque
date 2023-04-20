@@ -4,16 +4,17 @@ class Compte {
     private string $_libelle;
     private int $_soldeInitial;
     private string $_devise;
-    private string $_proprietaire;
+    private Titulaire $_titulaire;
 
 
+    // Ajout du Titulaire unique au compte:
 
-
-    function __construct(string $_libelle, int $_soldeInitial, string $_devise, string $_proprietaire){
+    function __construct(string $_libelle, int $_soldeInitial, string $_devise, $_titulaire){
         $this->_libelle = $_libelle;
         $this->_soldeInitial = $_soldeInitial;
         $this->_devise = $_devise;
-        $this->_proprietaire = $_proprietaire;
+        $this->_titulaire = $_titulaire;
+        $this->_titulaire-> AjoutAccounts($this);
     }
 
 
@@ -37,13 +38,12 @@ class Compte {
     public function setDevise($devise) {
         $this->_devise = $devise;
     }
-    public function getProprietaire() {
-        return $this->_proprietaire;
-    }
-    public function setProprietaire($proprietaire) {
-        $this->_proprietaire = $proprietaire;
-    }
 
+
+
+    public function __toString(){
+        return  $this->_libelle . " : " . $this->_soldeInitial . " " . $this->_devise . "<br>";
+    }
 
 
 
