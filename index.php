@@ -25,3 +25,5 @@ $accounts1 = new Compte("Compte courant", 4, "€" , $titulaire1);
 
 //
 $titulaire1->afficherComptes();
+echo "------------------------------------<br>";
+echo $accounts1->getInfos();

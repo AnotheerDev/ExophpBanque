@@ -47,6 +47,11 @@ class Compte {
 
 
 
+    // function qui rattache toutes les infos 
+    public function getInfos() {
+        $info = $this->_libelle . " : " . $this->_soldeInitial . " " . $this->_devise . " -> appartient à " . $this->_titulaire;
+        return $info;
+    }
 
 
 
