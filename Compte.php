@@ -72,9 +72,13 @@ class Compte {
 
 
 // création de la function pour faire un virement d'un compte à un autre compte :
+//       on prend un compte puis la function avec en paramètre (un compte et le montant);
 
-    public function virement($virement){
-        
+    public function virement(Compte $account ,$montant){
+        $this->_soldeInitial -= $montant;
+        $account->setSoldeInitial($account->getSoldeInitial()+ $montant);
+
+        echo "Vous venez de faire un virement sur " . $this->_libelle . " de " .$montant . $this->_devise . "<br>";
     }
 
 

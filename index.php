@@ -31,3 +31,4 @@ echo $accounts1->crediter(50);
 echo $accounts2->debiter(60);
 echo "------------------------------------<br>";
 $titulaire1->afficherComptes();
+$accounts1->virement($accounts3, 50);
