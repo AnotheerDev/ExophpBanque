@@ -11,7 +11,7 @@ class Titulaire {
 
     // un titulaire unique peut avoir plusieurs accounts:
 
-    function __construct(string $_nom, string $_prenom, string $_dateDeNaissance, string $_ville, array $_accounts) {
+    function __construct(string $_nom, string $_prenom, string $_dateDeNaissance, string $_ville) {
         $this->_nom = $_nom;
         $this->_prenom = $_prenom;
         $this->_dateDeNaissance = $_dateDeNaissance;
@@ -70,6 +70,16 @@ class Titulaire {
 
 
 
+    // création d'une fonction pour calculer l'age du titulaire : 
+
+    public function getAge(){
+        $now = new Datetime();
+        $dateDeNaissance = new DateTime($this->_dateDeNaissance);
+        $age = $now-> diff($dateDeNaissance)->y;
+        return $age;
+    }
+
+
     // fonction qui permet d'ajouter un compte à la liste des comptes du titulaire unique :
     public function AjoutAccounts(Compte $account){
         $this->_accounts[] = $account;
@@ -87,7 +97,19 @@ class Titulaire {
         }
     }
 
+    
+    // création d'une fonction qui permet de resortir toutes les infos du titulaire y compris age et comptes :
 
+
+    public function afficherInfos() {
+        echo "Information relative du titulaire : <br>";
+        echo "Nom et prénom : " . $this->_nom . " " . $this->_prenom . "<br>";
+        echo "Age :" . $this->getAge() ."ans<br>";
+        echo "Ville : " . $this->_ville . "<br>";
+        foreach($this->_accounts as $account){
+            echo $account. "<br>";
+        }
+    }
 
 
 

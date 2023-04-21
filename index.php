@@ -16,7 +16,7 @@ require "Titulaire.php";
 
 // création des objets $accounts et $titulaire1 :
 
-$titulaire1 = new Titulaire("DARMANIN", "Gerald", "11-10-1982", "Paris", []);
+$titulaire1 = new Titulaire("DARMANIN", "Gerald", "11-10-1982", "Paris");
 $accounts1 = new Compte("Livret A", 10, "€" , $titulaire1);
 $accounts2 = new Compte("PEL", 90, "€" , $titulaire1);
 $accounts3 = new Compte("Compte courant", 4, "€" , $titulaire1);
@@ -31,4 +31,7 @@ echo $accounts1->crediter(50);
 echo $accounts2->debiter(60);
 echo "------------------------------------<br>";
 $titulaire1->afficherComptes();
+echo "------------------------------------<br>";
 $accounts1->virement($accounts3, 50);
+echo "------------------------------------<br>";
+echo $titulaire1->afficherInfos();
