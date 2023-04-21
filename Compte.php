@@ -55,8 +55,27 @@ class Compte {
 
 
 
+    // création de la function pour créditer le compte d'un montant :
+
+    public function crediter($crediter) {
+        $this->_soldeInitial += $crediter;
+        echo "Vous venez de créditer " . $this->_libelle . " de " .$crediter . $this->_devise . "<br>";
+    }
 
 
+    // création de la function pour débiter le compte d'un montant :
+
+    public function debiter($debiter) {
+        $this->_soldeInitial -= $debiter;
+        echo "Vous venez de débiter " . $this->_libelle . " de " .$debiter . $this->_devise . "<br>";
+    }
+
+
+// création de la function pour faire un virement d'un compte à un autre compte :
+
+    public function virement($virement){
+        
+    }
 
 
 

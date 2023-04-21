@@ -18,8 +18,8 @@ require "Titulaire.php";
 
 $titulaire1 = new Titulaire("DARMANIN", "Gerald", "11-10-1982", "Paris", []);
 $accounts1 = new Compte("Livret A", 10, "€" , $titulaire1);
-$accounts1 = new Compte("PEL", 90, "€" , $titulaire1);
-$accounts1 = new Compte("Compte courant", 4, "€" , $titulaire1);
+$accounts2 = new Compte("PEL", 90, "€" , $titulaire1);
+$accounts3 = new Compte("Compte courant", 4, "€" , $titulaire1);
 
 
 
@@ -27,3 +27,7 @@ $accounts1 = new Compte("Compte courant", 4, "€" , $titulaire1);
 $titulaire1->afficherComptes();
 echo "------------------------------------<br>";
 echo $accounts1->getInfos();
+echo $accounts1->crediter(50);
+echo $accounts2->debiter(60);
+echo "------------------------------------<br>";
+$titulaire1->afficherComptes();
